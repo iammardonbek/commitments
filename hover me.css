@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto;
+  background-color: #f8f2f2;
+}
+/* navbar */
+nav {
+  background-color: #000000;
+}
+.hover-nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+.hover-nav li a {
+  position: relative;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  z-index: 0;
+  font-size: 20px;
+}
+.hover-nav a:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #2683f6;
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+.hover-nav li a:hover:before {
+  transform: scale(1);
+}
+/* hover me */
+.link-me {
+  font-family: "montserrat", sans-serif;
+  font-size: 50px;
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+}
+.link-me::before {
+  content: "";
+  inset: 0;
+  background-color: #d55650;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+}
+.link-me:hover::before {
+  background: #000000;
+  transform-origin: left;
+  transform: scaleX(1);
+}
+.link-me:hover {
+  color: #ffffff;
+}
+/* scrolling */
+.container {
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+.container > .item {
+  min-width: 100%;
+  scroll-snap-align: start;
+  text-align: center;
+  padding: 20px;
+  font-size: 50px;
+  text-transform: capitalize;
+}
+.one {
+  background-color: aqua;
+}
+.two {
+  background-color: #d55650;
+}
+.three {
+  background-color: cadetblue;
+}
+.four {
+  background-color: violet;
+}
+/* Show additional content on hover */
+.card {
+  width: 300px;
+  height: 280px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card * {
+  transition: 0.3s ease all;
+}
+.card img {
+  width: 300px;
+  height: 224px;
+}
+.card h3 {
+  margin: 0;
+  padding: 12px 12px 48px;
+  line-height: 32px;
+  font-weight: 500;
+  font-size: 20px;
+}
+.focus-content {
+  padding: 8px 12px;
+}
+.card:hover img {
+  margin-top: -80px;
+}
+.card:hover h3 {
+  padding: 8px 12px 0;
+}
+/* Staggered animation */
+.wrapper {
+  width: 100%;
+}
+.menu-toggler {
+  display: none;
+}
+.menu-toggler-label {
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+}
+.stagger-menu {
+  list-style-type: none;
+  margin: 20px 0;
+}
+.stagger-menu li {
+  margin-bottom: 8px;
+  font-size: 20px;
+  opacity: 0;
+  transform: translateX(100%); /*or Y*/
+  transition-duration: 0.5s;
+}
+.menu-toggler:checked ~ .stagger-menu li {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: calc(0.055s * var(--i));
+}
+/* List with sticky section headings */
+.list-div {
+  display: grid;
+  place-items: center;
+  min-height: 400px;
+}
+.sticky-stack {
+  background: #37474f;
+  color: #fff;
+  height: 320px;
+  border-radius: 1rem;
+  overflow: auto;
+}
+.sticky-stack dt {
+  position: sticky;
+  top: 0;
+  font-weight: bold;
+  background: #263238;
+  color: #cfd8dc;
+  padding: 0.25rem 1rem;
+}
+.sticky-stack dd {
+  padding: 0.75rem 1rem;
+}
+.sticky-stack dd + dt {
+  margin-top: 1rem;
+}
